@@ -8,14 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    let date = Date()
+    @AppStorage("isDarkMode") var isDarkMode = false
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.orange]
+    }
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            Text("")
+            .navigationTitle(formattedDate)
+            .toolbar {
+                Button {
+                    isDarkMode.toggle()
+                } label: {
+                    isDarkMode ? Image(systemName: "moon.stars") : Image(systemName: "sun.max")
+                }
+            }
         }
-        .padding()
+    }
+    var formattedDate: String {
+        DateFormatter.custom.string(from: date)
     }
 }
 
