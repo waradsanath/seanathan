@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AD39D572C454B6200589030 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD39D562C454B6200589030 /* WorkoutView.swift */; };
 		819BDEAB2C42579500A94FF6 /* ShapeShiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BDEAA2C42579500A94FF6 /* ShapeShiftApp.swift */; };
 		819BDEAD2C42579500A94FF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BDEAC2C42579500A94FF6 /* ContentView.swift */; };
 		819BDEAF2C42579700A94FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819BDEAE2C42579700A94FF6 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AD39D562C454B6200589030 /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		819BDEA72C42579500A94FF6 /* ShapeShift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShapeShift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		819BDEAA2C42579500A94FF6 /* ShapeShiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeShiftApp.swift; sourceTree = "<group>"; };
 		819BDEAC2C42579500A94FF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				81F2279E2C43BA39002F9F8A /* MainView.swift */,
 				819BDEBA2C42715C00A94FF6 /* DateFormatter.swift */,
 				819BDEAE2C42579700A94FF6 /* Assets.xcassets */,
+				1AD39D562C454B6200589030 /* WorkoutView.swift */,
 				819BDEB02C42579700A94FF6 /* Preview Content */,
 			);
 			path = ShapeShift;
@@ -150,6 +153,7 @@
 				81F227A12C43BA94002F9F8A /* FirstLaunchView.swift in Sources */,
 				81F2279F2C43BA39002F9F8A /* MainView.swift in Sources */,
 				819BDEAD2C42579500A94FF6 /* ContentView.swift in Sources */,
+				1AD39D572C454B6200589030 /* WorkoutView.swift in Sources */,
 				819BDEAB2C42579500A94FF6 /* ShapeShiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
