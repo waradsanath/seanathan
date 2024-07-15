@@ -12,6 +12,8 @@
 		819BDEAF2C42579700A94FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819BDEAE2C42579700A94FF6 /* Assets.xcassets */; };
 		819BDEB22C42579700A94FF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819BDEB12C42579700A94FF6 /* Preview Assets.xcassets */; };
 		819BDEBB2C42715C00A94FF6 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BDEBA2C42715C00A94FF6 /* DateFormatter.swift */; };
+		81F2279F2C43BA39002F9F8A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F2279E2C43BA39002F9F8A /* MainView.swift */; };
+		81F227A12C43BA94002F9F8A /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F227A02C43BA94002F9F8A /* FirstLaunchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		819BDEAE2C42579700A94FF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		819BDEB12C42579700A94FF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		819BDEBA2C42715C00A94FF6 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		81F2279E2C43BA39002F9F8A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		81F227A02C43BA94002F9F8A /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			children = (
 				819BDEAA2C42579500A94FF6 /* ShapeShiftApp.swift */,
 				819BDEAC2C42579500A94FF6 /* ContentView.swift */,
+				81F227A02C43BA94002F9F8A /* FirstLaunchView.swift */,
+				81F2279E2C43BA39002F9F8A /* MainView.swift */,
 				819BDEBA2C42715C00A94FF6 /* DateFormatter.swift */,
 				819BDEAE2C42579700A94FF6 /* Assets.xcassets */,
 				819BDEB02C42579700A94FF6 /* Preview Content */,
@@ -141,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				819BDEBB2C42715C00A94FF6 /* DateFormatter.swift in Sources */,
+				81F227A12C43BA94002F9F8A /* FirstLaunchView.swift in Sources */,
+				81F2279F2C43BA39002F9F8A /* MainView.swift in Sources */,
 				819BDEAD2C42579500A94FF6 /* ContentView.swift in Sources */,
 				819BDEAB2C42579500A94FF6 /* ShapeShiftApp.swift in Sources */,
 			);

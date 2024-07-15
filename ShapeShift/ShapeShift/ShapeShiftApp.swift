@@ -10,11 +10,14 @@ import SwiftUI
 @main
 struct ShapeShiftApp: App {
     @AppStorage("isDarkMode") var isDarkMode = false
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.orange]
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .tint(.orange)
                 .preferredColorScheme(isDarkMode ? .dark: .light)
+                .tint(Color.orange)
         }
     }
 }

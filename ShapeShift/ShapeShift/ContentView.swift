@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
-    let date = Date()
-    @AppStorage("isDarkMode") var isDarkMode = false
+    @State private var isFirstLaunch: Bool
+    
     init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.orange]
-    }
-    var body: some View {
-        NavigationStack {
-            Text("")
-            .navigationTitle(formattedDate)
-            .toolbar {
-                Button {
-                    isDarkMode.toggle()
-                } label: {
-                    isDarkMode ? Image(systemName: "moon.stars") : Image(systemName: "sun.max")
-                }
-            }
+        let firstLaunchKey = "hasLaunchedBefore"
+        let hasLaunchedBefore = UserDefaults.standard.bool(forKey: firstLaunchKey)
+        
+        _isFirstLaunch = State(initialValue: !hasLaunchedBefore)
+        
+        if !hasLaunchedBefore {
+            UserDefaults.standard.set(true, forKey: firstLaunchKey)
         }
+        
     }
-    var formattedDate: String {
-        DateFormatter.custom.string(from: date)
+    
+    var body: some View {
+        if isFirstLaunch {
+            FirstLaunchView()
+        } else {
+            MainView()
+        }
     }
 }
 
