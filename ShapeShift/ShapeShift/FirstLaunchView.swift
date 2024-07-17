@@ -38,7 +38,9 @@ struct FirstLaunchView: View {
                         yImage -= 700
                         yText2 -= 750
                         page += 1
-
+                    }
+                    if page == 3{
+                        ()
                     }
                 } label: {
                     Text("Move")
