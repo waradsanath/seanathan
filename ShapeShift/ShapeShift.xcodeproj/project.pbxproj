@@ -15,6 +15,7 @@
 		819BDEBB2C42715C00A94FF6 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BDEBA2C42715C00A94FF6 /* DateFormatter.swift */; };
 		81F2279F2C43BA39002F9F8A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F2279E2C43BA39002F9F8A /* MainView.swift */; };
 		81F227A12C43BA94002F9F8A /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F227A02C43BA94002F9F8A /* FirstLaunchView.swift */; };
+		D9EE245F2C4B96CA009C03A9 /* Diet view.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EE245E2C4B96CA009C03A9 /* Diet view.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		819BDEBA2C42715C00A94FF6 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		81F2279E2C43BA39002F9F8A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		81F227A02C43BA94002F9F8A /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
+		D9EE245E2C4B96CA009C03A9 /* Diet view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Diet view.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				819BDEAC2C42579500A94FF6 /* ContentView.swift */,
 				81F227A02C43BA94002F9F8A /* FirstLaunchView.swift */,
 				81F2279E2C43BA39002F9F8A /* MainView.swift */,
+				D9EE245E2C4B96CA009C03A9 /* Diet view.swift */,
 				819BDEBA2C42715C00A94FF6 /* DateFormatter.swift */,
 				819BDEAE2C42579700A94FF6 /* Assets.xcassets */,
 				1AD39D562C454B6200589030 /* WorkoutView.swift */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9EE245F2C4B96CA009C03A9 /* Diet view.swift in Sources */,
 				819BDEBB2C42715C00A94FF6 /* DateFormatter.swift in Sources */,
 				81F227A12C43BA94002F9F8A /* FirstLaunchView.swift in Sources */,
 				81F2279F2C43BA39002F9F8A /* MainView.swift in Sources */,
