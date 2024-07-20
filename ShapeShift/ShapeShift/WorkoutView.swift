@@ -94,7 +94,7 @@ struct WorkoutPage: View {
                         }
                         .padding(.leading, 30)
                         Spacer()
-                        Image("Frame")
+                        Image("Image")
                             .frame(width: 36, height: 36)
                             .padding()
                     }
@@ -126,7 +126,7 @@ struct WorkoutPage: View {
                         }
                         .padding(.leading, 30)
                         Spacer()
-                        Image("Frame")
+                        Image("Image")
                             .frame(width: 36, height: 36)
                             .padding()
                     }
@@ -158,7 +158,7 @@ struct WorkoutPage: View {
                         }
                         .padding(.leading, 30)
                         Spacer()
-                        Image("Frame")
+                        Image("Image")
                             .frame(width: 36, height: 36)
                             .padding()
                     }
@@ -202,7 +202,7 @@ struct WorkoutPage: View {
                         }
                         .padding(.leading, 30)
                         Spacer()
-                        Image("Frame")
+                        Image("Image")
                             .frame(width: 36, height: 36)
                             .padding(.trailing, 45)
                     }
