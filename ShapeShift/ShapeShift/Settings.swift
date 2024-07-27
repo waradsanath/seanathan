@@ -7,76 +7,138 @@ struct SettingsView: View {
     @State private var height: String = ""
     @State private var neck: String = ""
     @State private var waist: String = ""
+    @State private var hip: String = ""  // Added hip circumference
     @State private var bodyFatPercentage: Double?
-
+    
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.black.edgesIgnoringSafeArea(.all)
-                
-                VStack(spacing: 20) {
-                    Text("Settings")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color.orange)
+            GeometryReader { geometry in
+                ZStack {
+                    Color.white.edgesIgnoringSafeArea(.all)
                     
-                    VStack(alignment: .leading, spacing: 15) {
-                        HStack {
-                            Text("Gender")
-                                .foregroundColor(.white)
-                            Picker("Gender", selection: $gender) {
-                                Text("Male").tag(Gender.male)
-                                Text("Female").tag(Gender.female)
-                            }
-                            .pickerStyle(SegmentedPickerStyle())
-                        }
+                    VStack(spacing: 20) {
+                        Text("Settings")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.orange)
+                            .padding(.top, 20)
                         
-                        InputField(title: "Age", value: $age, unit: "years")
-                        InputField(title: "Weight", value: $weight, unit: "kg")
-                        InputField(title: "Height", value: $height, unit: "cm")
-                        InputField(title: "Neck", value: $neck, unit: "cm")
-                        InputField(title: "Waist", value: $waist, unit: "cm")
+                        VStack(alignment: .leading, spacing: 15) {
+                            HStack {
+                                Text("Gender")
+                                    .foregroundColor(.black)  // Changed to black
+                                
+                                Picker("Gender", selection: $gender) {
+                                    Text("Male")
+                                        .tag(Gender.male)
+                                        .foregroundColor(gender == .male ? .white : .black)
+                                        .background(gender == .male ? Color.blue : Color.gray.opacity(0.3))
+                                        .cornerRadius(8)
+                                    
+                                    Text("Female")
+                                        .tag(Gender.female)
+                                        .foregroundColor(gender == .female ? .white : .black)
+                                        .background(gender == .female ? Color.blue : Color.gray.opacity(0.3))
+                                        .cornerRadius(8)
+                                }
+                                .pickerStyle(SegmentedPickerStyle())
+                            }
+                            .padding()
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                            
+                            InputField(title: "Age", value: $age, unit: "years")
+                        }
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(10)
+                        
+                        VStack(spacing: 15) {
+                            HStack {
+                                VStack {
+                                    InputField(title: "Weight", value: $weight, unit: "kg")
+                                    InputField(title: "Height", value: $height, unit: "cm")
+                                }
+                                
+                                Spacer()
+                                
+                                VStack {
+                                    InputField(title: "Neck", value: $neck, unit: "cm")
+                                    InputField(title: "Waist", value: $waist, unit: "cm")
+                                    
+                                    if gender == .female {
+                                        InputField(title: "Hip", value: $hip, unit: "cm")
+                                    }
+                                }
+                            }
+                            .padding()
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                            
+                            if let bfp = bodyFatPercentage {
+                                Text("Estimated fat percentage")
+                                    .foregroundColor(.black)  // Changed to black
+                                Text(String(format: "%.1f%%", bfp))
+                                    .font(.title)
+                                    .foregroundColor(Color.orange)  // Yellow for contrast
+                            }
+                        }
+                        .padding()
+                        
+                        HStack(spacing: 20) {
+                            Button(action: calculateBFP) {
+                                Text("Calculate")
+                                    .padding()
+                                    .background(Color.green)
+                                    .foregroundColor(.white)  // Text color set to white
+                                    .cornerRadius(10)
+                            }
+                            
+                            Button(action: clearFields) {
+                                Text("Clear")
+                                    .padding()
+                                    .background(Color.gray)
+                                    .foregroundColor(.white)  // Text color set to white
+                                    .cornerRadius(10)
+                            }
+                        }
+                        .padding(.bottom, 20)
                     }
                     .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                    
-                    if let bfp = bodyFatPercentage {
-                        Text("Estimated fat percentage")
-                            .foregroundColor(.white)
-                        Text(String(format: "%.1f%%", bfp))
-                            .font(.title)
-                            .foregroundColor(.yellow)
-                    }
-                    
-                    HStack(spacing: 20) {
-                        Button(action: calculateBFP) {
-                            Text("Calculate")
-                                .padding()
-                                .background(Color.green)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                        }
-                        
-                        Button(action: clearFields) {
-                            Text("Clear")
-                                .padding()
-                                .background(Color.gray)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                        }
-                    }
                 }
-                .padding()
             }
             .navigationBarHidden(true)
         }
     }
     
     func calculateBFP() {
-        // Implement BFP calculation here
-        // This is a placeholder calculation
-        bodyFatPercentage = 15.7
+        // Ensure all fields have valid numeric values
+        guard let weight = Double(weight),
+              let height = Double(height),
+              let neck = Double(neck),
+              let waist = Double(waist) else {
+            bodyFatPercentage = nil
+            return
+        }
+        
+        if gender == .male {
+            // Breaking down the formula for males
+            let logWaistNeck = log10(waist - neck)
+            let logHeight = log10(height)
+            let bfp = 495 / (1.0324 - 0.19077 * logWaistNeck + 0.15456 * logHeight) - 450
+            bodyFatPercentage = bfp.isNaN ? 0.0 : bfp
+        } else {
+            guard let hip = Double(hip) else {
+                bodyFatPercentage = nil
+                return
+            }
+            
+            // Breaking down the formula for females
+            let logWaistHipNeck = log10(waist + hip - neck)
+            let logHeight = log10(height)
+            let bfp = 495 / (1.29579 - 0.35004 * logWaistHipNeck + 0.22100 * logHeight) - 450
+            bodyFatPercentage = bfp.isNaN ? 0.0 : bfp
+        }
     }
     
     func clearFields() {
@@ -85,6 +147,7 @@ struct SettingsView: View {
         height = ""
         neck = ""
         waist = ""
+        hip = ""  // Clear hip circumference
         bodyFatPercentage = nil
     }
 }
@@ -97,24 +160,24 @@ struct InputField: View {
     var body: some View {
         HStack {
             Text(title)
-                .foregroundColor(.white)
+                .foregroundColor(.black)  // Changed to black
             TextField("", text: $value)
                 .keyboardType(.decimalPad)
-                .foregroundColor(.white)
                 .padding(5)
-                .background(Color.gray.opacity(0.3))
+                .background(Color.gray.opacity(0.1))
                 .cornerRadius(5)
             Text(unit)
-                .foregroundColor(.white)
+                .foregroundColor(.black)  // Changed to black
         }
     }
 }
 
-enum Gender {
-    case male; case female
+enum Gender: String {
+    case male = "male"
+    case female = "female"
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
     }
