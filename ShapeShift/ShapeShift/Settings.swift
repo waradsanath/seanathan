@@ -22,11 +22,11 @@ struct SettingsView: View {
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .foregroundColor(Color.orange)
-                            .padding(.top, 20)
+                            .padding(10)
                         
                         // Name input field
                         InputField(title: "Name", value: $name, unit: "")
-                            .padding()
+                            .padding(10)
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
                         
@@ -50,13 +50,13 @@ struct SettingsView: View {
                                 }
                                 .pickerStyle(SegmentedPickerStyle())
                             }
-                            .padding()
+                            .padding(10)
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
                             
                             InputField(title: "Age", value: $age, unit: "years")
                         }
-                        .padding()
+                        .padding(10)
                         .background(Color.gray.opacity(0.2))
                         .cornerRadius(10)
                         
@@ -78,7 +78,7 @@ struct SettingsView: View {
                                     }
                                 }
                             }
-                            .padding()
+                            .padding(10)
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
                             
@@ -90,12 +90,12 @@ struct SettingsView: View {
                                     .foregroundColor(Color.orange)
                             }
                         }
-                        .padding()
+                        .padding(10)
                         
                         HStack(spacing: 20) {
                             Button(action: calculateBFP) {
                                 Text("Calculate")
-                                    .padding()
+                                    .padding(10)
                                     .background(Color.green)
                                     .foregroundColor(.white)
                                     .cornerRadius(10)
@@ -103,15 +103,16 @@ struct SettingsView: View {
                             
                             Button(action: clearFields) {
                                 Text("Clear")
-                                    .padding()
+                                    .padding(10)
                                     .background(Color.gray)
                                     .foregroundColor(.white)
                                     .cornerRadius(10)
                             }
                         }
-                        .padding(.bottom, 20)
+                        .padding(10)
+                    
                     }
-                    .padding()
+                    .padding(10)
                 }
             }
             .navigationBarHidden(true)
@@ -171,7 +172,7 @@ struct InputField: View {
                 .foregroundColor(.black)
             TextField("", text: $value)
                 .keyboardType(.decimalPad)
-                .padding(5)
+                .padding(10)
                 .background(Color.gray.opacity(0.1))
                 .cornerRadius(5)
             Text(unit)
