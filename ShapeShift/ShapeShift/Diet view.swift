@@ -37,8 +37,9 @@ struct DietView: View {
                             Spacer()
                             Button {
                             } label: {
-                                Text(Image(systemName: "plus"))
+                                Image(systemName: "plus")
                                     .padding()
+                                    .font(.system(size: 21))
                             }
                             
                         }
