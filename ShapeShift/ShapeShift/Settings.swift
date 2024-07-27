@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @State private var name: String = ""
     @State private var gender: Gender = .male
     @State private var age: String = ""
     @State private var weight: String = ""
@@ -23,10 +24,16 @@ struct SettingsView: View {
                             .foregroundColor(Color.orange)
                             .padding(.top, 20)
                         
+                        // Name input field
+                        InputField(title: "Name", value: $name, unit: "")
+                            .padding()
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                        
                         VStack(alignment: .leading, spacing: 15) {
                             HStack {
                                 Text("Gender")
-                                    .foregroundColor(.black)  // Changed to black
+                                    .foregroundColor(.black)
                                 
                                 Picker("Gender", selection: $gender) {
                                     Text("Male")
@@ -77,10 +84,10 @@ struct SettingsView: View {
                             
                             if let bfp = bodyFatPercentage {
                                 Text("Estimated fat percentage")
-                                    .foregroundColor(.black)  // Changed to black
+                                    .foregroundColor(.black)
                                 Text(String(format: "%.1f%%", bfp))
                                     .font(.title)
-                                    .foregroundColor(Color.orange)  // Yellow for contrast
+                                    .foregroundColor(Color.orange)
                             }
                         }
                         .padding()
@@ -90,7 +97,7 @@ struct SettingsView: View {
                                 Text("Calculate")
                                     .padding()
                                     .background(Color.green)
-                                    .foregroundColor(.white)  // Text color set to white
+                                    .foregroundColor(.white)
                                     .cornerRadius(10)
                             }
                             
@@ -98,7 +105,7 @@ struct SettingsView: View {
                                 Text("Clear")
                                     .padding()
                                     .background(Color.gray)
-                                    .foregroundColor(.white)  // Text color set to white
+                                    .foregroundColor(.white)
                                     .cornerRadius(10)
                             }
                         }
@@ -142,6 +149,7 @@ struct SettingsView: View {
     }
     
     func clearFields() {
+        name = ""
         age = ""
         weight = ""
         height = ""
@@ -160,14 +168,14 @@ struct InputField: View {
     var body: some View {
         HStack {
             Text(title)
-                .foregroundColor(.black)  // Changed to black
+                .foregroundColor(.black)
             TextField("", text: $value)
                 .keyboardType(.decimalPad)
                 .padding(5)
                 .background(Color.gray.opacity(0.1))
                 .cornerRadius(5)
             Text(unit)
-                .foregroundColor(.black)  // Changed to black
+                .foregroundColor(.black)
         }
     }
 }
