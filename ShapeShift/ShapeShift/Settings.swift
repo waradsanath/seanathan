@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import SwiftUI
 
 struct SettingsView: View {
@@ -192,7 +191,6 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView()
     }
 }
-=======
 //import SwiftUI
 //
 //struct SettingsView: View {
@@ -384,4 +382,3 @@ struct SettingsView_Previews: PreviewProvider {
 //        SettingsView()
 //    }
 //
->>>>>>> Stashed changes
