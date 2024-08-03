@@ -12,7 +12,7 @@ struct SettingsView: View {
     @State private var bodyFatPercentage: Double?
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             GeometryReader { geometry in
                 ZStack {
                     VStack(spacing: 20) {
@@ -21,126 +21,127 @@ struct SettingsView: View {
                             .fontWeight(.bold)
                             .foregroundColor(Color.orange)
                             .padding(10)
-
+                        
                         // Name input field
                         InputField(title: "Name", value: $name, unit: "")
                             .padding(10)
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
-
+                        
                         VStack(alignment: .leading, spacing: 15) {
                             HStack {
                                 Text("Gender")
-
+                                
                                 Picker("Gender", selection: $gender) {
                                     Text("Male")
                                         .tag(Gender.male)
                                     Text("Female")
                                         .tag(Gender.female)
-
-                                Picker("Gender", selection: $gender) {
-                                    Text("Male")
-                                        .tag(Gender.male)
-                                        .foregroundColor(gender == .male ? .white : .black)
-                                        .background(gender == .male ? Color.white : Color.gray.opacity(0.3))
-                                        .cornerRadius(8)
                                     
-                                    Text("Female")
-                                        .tag(Gender.female)
-                                        .foregroundColor(gender == .female ? .white : .black)
-                                        .background(gender == .female ? Color.white : Color.gray.opacity(0.3))
-                                        .cornerRadius(8)
-                                }
-                                .pickerStyle(SegmentedPickerStyle())
-                                .onChange(of: gender, perform: { _ in
-                                    calculateBFP()
-                                })
-                            }
-                            .padding(10)
-                            .cornerRadius(10)
-
-                            InputField(title: "Age", value: $age, unit: "years")
-                                .onChange(of: age, perform: { _ in
-                                    calculateBFP()
-                                })
-                        }
-                        .padding(10)
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(10)
-
-                        VStack(spacing: 15) {
-                            HStack {
-                                VStack {
-                                    InputField(title: "Weight", value: $weight, unit: "kg")
-                                        .onChange(of: weight, perform: { _ in
-                                            calculateBFP()
-                                        })
-                                    InputField(title: "Height", value: $height, unit: "cm")
-                                        .onChange(of: height, perform: { _ in
-                                            calculateBFP()
-                                        })
-                                }
-
-                                Spacer()
-
-                                VStack {
-                                    InputField(title: "Neck", value: $neck, unit: "cm")
-                                        .onChange(of: neck, perform: { _ in
-                                            calculateBFP()
-                                        })
-                                    InputField(title: "Waist", value: $waist, unit: "cm")
-                                        .onChange(of: waist, perform: { _ in
-                                            calculateBFP()
-                                        })
-
-                                    if gender == .female {
-                                        InputField(title: "Hip", value: $hip, unit: "cm")
-                                            .onChange(of: hip, perform: { _ in
-                                                calculateBFP()
-                                            })
+                                    Picker("Gender", selection: $gender) {
+                                        Text("Male")
+                                            .tag(Gender.male)
+                                            .foregroundColor(gender == .male ? .white : .black)
+                                            .background(gender == .male ? Color.white : Color.gray.opacity(0.3))
+                                            .cornerRadius(8)
+                                        
+                                        Text("Female")
+                                            .tag(Gender.female)
+                                            .foregroundColor(gender == .female ? .white : .black)
+                                            .background(gender == .female ? Color.white : Color.gray.opacity(0.3))
+                                            .cornerRadius(8)
                                     }
+                                    .pickerStyle(SegmentedPickerStyle())
+                                    .onChange(of: gender, perform: { _ in
+                                        calculateBFP()
+                                    })
                                 }
+                                .padding(10)
+                                .cornerRadius(10)
+                                
+                                InputField(title: "Age", value: $age, unit: "years")
+                                    .onChange(of: age, perform: { _ in
+                                        calculateBFP()
+                                    })
                             }
                             .padding(10)
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
-
-                            if let bfp = bodyFatPercentage {
-                                Text("Estimated fat percentage")
-                                Text(String(format: "%.1f%%", bfp))
-                                    .font(.title)
-                                    .foregroundColor(Color.orange)
-                            }
-                        }
-                        .padding(10)
-
-                        HStack(spacing: 20) {
-                            Button(action: calculateBFP) {                                Text("Retry")
-                                    .padding(10)
-                                    .background(Color.orange)
-                                    .foregroundColor(.white)                                
-                                Text("Calculate")
-                                    .padding(10)
-                                    .background(Color.orange)
-                                    .cornerRadius(10)
-                            }
                             
-                            Button(action: clearFields) {
-                                Text("Clear")
-                                    .padding(10)
-                                    .background(Color.gray)
-                                    .cornerRadius(10)
+                            VStack(spacing: 15) {
+                                HStack {
+                                    VStack {
+                                        InputField(title: "Weight", value: $weight, unit: "kg")
+                                            .onChange(of: weight, perform: { _ in
+                                                calculateBFP()
+                                            })
+                                        InputField(title: "Height", value: $height, unit: "cm")
+                                            .onChange(of: height, perform: { _ in
+                                                calculateBFP()
+                                            })
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    VStack {
+                                        InputField(title: "Neck", value: $neck, unit: "cm")
+                                            .onChange(of: neck, perform: { _ in
+                                                calculateBFP()
+                                            })
+                                        InputField(title: "Waist", value: $waist, unit: "cm")
+                                            .onChange(of: waist, perform: { _ in
+                                                calculateBFP()
+                                            })
+                                        
+                                        if gender == .female {
+                                            InputField(title: "Hip", value: $hip, unit: "cm")
+                                                .onChange(of: hip, perform: { _ in
+                                                    calculateBFP()
+                                                })
+                                        }
+                                    }
+                                }
+                                .padding(10)
+                                .background(Color.gray.opacity(0.2))
+                                .cornerRadius(10)
+                                
+                                if let bfp = bodyFatPercentage {
+                                    Text("Estimated fat percentage")
+                                    Text(String(format: "%.1f%%", bfp))
+                                        .font(.title)
+                                        .foregroundColor(Color.orange)
+                                }
                             }
-
-                           
+                            .padding(10)
+                            
+                            HStack(spacing: 20) {
+                                Button(action: calculateBFP) {                                Text("Retry")
+                                        .padding(10)
+                                        .background(Color.orange)
+                                        .foregroundColor(.white)
+                                    Text("Calculate")
+                                        .padding(10)
+                                        .background(Color.orange)
+                                        .cornerRadius(10)
+                                }
+                                
+                                Button(action: clearFields) {
+                                    Text("Clear")
+                                        .padding(10)
+                                        .background(Color.gray)
+                                        .cornerRadius(10)
+                                }
+                                
+                                
+                            }
+                            .padding(10)
+                            
                         }
                         .padding(10)
-
                     }
-                    .padding(10)
                 }
+                .navigationBarHidden(true)
             }
-            .navigationBarHidden(true)
         }
     }
 
