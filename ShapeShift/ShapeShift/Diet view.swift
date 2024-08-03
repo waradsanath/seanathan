@@ -1,36 +1,46 @@
 import SwiftUI
 
+var kcals: Double = 1900
+var dailyKcalIntake: Double = 1500
+
+var percentage: Double {
+    (kcals / dailyKcalIntake) * 100
+}
+
+var overLimit: Bool = false
+
+var progressBarWidth: CGFloat {
+    let percentage = (kcals / dailyKcalIntake) * 100
+    let maxWidth: CGFloat = UIScreen.main.bounds.width - 32 // Adjust to fit your design
+    return maxWidth * CGFloat(min(percentage, 100)) / 100
+}
+
+
+
+
+
 struct DietView: View {
-    var kcals: Double = 1000
-    var dailyKcalIntake: Double = 1500
-    
-
-
-    
-    
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.black
                     .ignoresSafeArea()
                 ScrollView {
                     
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 10) {
                         
                         HStack(){
                             Text("Limit")
                                 .foregroundColor(.white)
                                 .bold()
                                 .font(.system(size: 30))
-                                .padding()
+                            
                             
                             Spacer()
                             
                             Text(String(floor(percentage)) + "% of " + String(dailyKcalIntake))
                                 .foregroundColor(percentage > 100 ? .red : .gray)
-                                .padding()
-                                
                             
                         }
                         
@@ -47,60 +57,94 @@ struct DietView: View {
                                 .frame(width: progressBarWidth, height: 20)
                                 .cornerRadius(100)
                             
-                            ForEach(0..<numberOfLayers, id: \.self) { index in
-                                Rectangle()
-                                    .fill(index == 0 ? Color.red : index == 1 ? Color.yellow : Color.green)
-                                    .frame(width: progressBarWidth - 100, height: 30)
-                                    .cornerRadius(100)
-                            }
-                                                               
-                        }
-                        .padding()
-                        
-                        HStack {
-                            Text("Meals")
-                                .foregroundColor(.white)
-                                .bold()
-                                .multilineTextAlignment(.leading)
-                                .font(.system(size: 30))
-                                .padding()
                             
-                            Spacer()
-                            Button {
-                                // Action for edit button
-                            } label: {
-                                Text("Edit")
-                                    .padding()
-                                    .font(.system(size: 21))
-                            }
                         }
                         
-                        NavigationStack {
-                            // Navigation content
+                        
+                    }
+                    .padding()
+                    
+                    HStack {
+                        Text("Meals")
+                            .foregroundColor(.white)
+                            .bold()
+                            .multilineTextAlignment(.leading)
+                            .font(.system(size: 30))
+                            .padding()
+                        
+                        Spacer()
+                        Button {
+                            // Action for edit button
+                        } label: {
+                            Text("Edit")
+                                .padding()
+                                .font(.system(size: 21))
                         }
                     }
+                    NavigationLink(destination: RunningView()) {
+                        WorkoutItemView(title: "Running", description: "Exercise info, naggy sus mogijvisdjvs")
+                    }
+                    
+                    NavigationStack {
+                        // Navigation content
+                    }
                 }
-                .navigationTitle("Diet")
             }
-            var percentage: Double {
-                (kcals/dailyKcalIntake) * 100
-            }
-            
-            var numberOfLayers: Int {
-                return Int(floor(percentage / 100))
-            }
+            .navigationTitle("Diet")
         }
-    }
-    
-    var progressBarWidth: CGFloat {
-        let percentage = (kcals / dailyKcalIntake) * 100
-        let maxWidth: CGFloat = UIScreen.main.bounds.width - 32 // Adjust to fit your design
-        return maxWidth * CGFloat(percentage) / 100
+        
+        
+     //   var numberOfLayers: Int {
+       //     return Int(floor(percentage / 100))
+     //   }
     }
 }
+
+
+
+
+
+// func progressBar() {
+//     let percentage = (kcals / dailyKcalIntake) * 100
+//  var numberOfLayers: Int {
+//      Int(floor(percentage / 100))
+//  }
+//
+//  if percentage.truncatingRemainder(dividingBy: 100) == 0 {
+//        var newBarpercentage = Int(percentage) - (Int(numberOfLayers) * 100)
+//      layerNumber.append(numberOfLayers)
+//  }
+
+// }
 
 #Preview {
     DietView()
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
