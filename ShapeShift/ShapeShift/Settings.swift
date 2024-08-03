@@ -37,6 +37,19 @@ struct SettingsView: View {
                                         .tag(Gender.male)
                                     Text("Female")
                                         .tag(Gender.female)
+
+                                Picker("Gender", selection: $gender) {
+                                    Text("Male")
+                                        .tag(Gender.male)
+                                        .foregroundColor(gender == .male ? .white : .black)
+                                        .background(gender == .male ? Color.white : Color.gray.opacity(0.3))
+                                        .cornerRadius(8)
+                                    
+                                    Text("Female")
+                                        .tag(Gender.female)
+                                        .foregroundColor(gender == .female ? .white : .black)
+                                        .background(gender == .female ? Color.white : Color.gray.opacity(0.3))
+                                        .cornerRadius(8)
                                 }
                                 .pickerStyle(SegmentedPickerStyle())
                                 .onChange(of: gender, perform: { _ in
@@ -102,11 +115,20 @@ struct SettingsView: View {
                         .padding(10)
 
                         HStack(spacing: 20) {
-                            Button(action: calculateBFP) {
-                                Text("Retry")
+                            Button(action: calculateBFP) {                                Text("Retry")
                                     .padding(10)
                                     .background(Color.orange)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.white)                                
+                                Text("Calculate")
+                                    .padding(10)
+                                    .background(Color.orange)
+                                    .cornerRadius(10)
+                            }
+                            
+                            Button(action: clearFields) {
+                                Text("Clear")
+                                    .padding(10)
+                                    .background(Color.gray)
                                     .cornerRadius(10)
                             }
 
