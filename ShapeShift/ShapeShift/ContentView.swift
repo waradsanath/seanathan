@@ -24,7 +24,7 @@ struct ContentView: View {
     
     var body: some View {
         if isFirstLaunch {
-            FirstLaunchView()
+            FirstLaunchTabView()
         } else {
             MainView()
         }

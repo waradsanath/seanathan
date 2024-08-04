@@ -1,13 +1,13 @@
 //
-//  FirstLaunchView.swift
+//  FirstLaunchView1.swift
 //  ShapeShift
 //
-//  Created by Sanath Warad on 14/7/24.
+//  Created by Sanath Warad on 27/7/24.
 //
 
 import SwiftUI
 
-struct FirstLaunchView: View {
+struct FirstLaunchView1: View {
     var body: some View {
         NavigationStack {
             VStack {
@@ -15,12 +15,12 @@ struct FirstLaunchView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200)
-                Text("Welcome to ShapeShift!")
+                Text("First, let's enter your biometrics")
                     .fontWeight(.heavy)
-                    .font(.system(size: 30))
+                    .font(.system(size: 24))
                     .padding(.top)
                     .foregroundStyle(Color.orange)
-                Text("An encouraging and affirming app for you to keep your weight in check!")
+                Text("This will help Shapeshift recommend personalised exercises for you!")
                     .padding(.horizontal)
                     .multilineTextAlignment(.center)
             }
@@ -29,5 +29,5 @@ struct FirstLaunchView: View {
 }
 
 #Preview {
-    FirstLaunchView()
+    FirstLaunchView1()
 }
