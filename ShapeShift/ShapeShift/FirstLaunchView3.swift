@@ -23,6 +23,7 @@ struct FirstLaunchView3: View {
                 Text("Welcome to Shapeshift!")
                     .padding(.horizontal)
                     .multilineTextAlignment(.center)
+                
             }
         }
     }

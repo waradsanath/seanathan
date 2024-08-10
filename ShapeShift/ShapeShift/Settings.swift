@@ -16,12 +16,14 @@ struct SettingsView: View {
             GeometryReader { geometry in
                 ZStack {
                     VStack(spacing: 20) {
-                        Text("Settings")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.orange)
-                            .padding(10)
-
+                        HStack{
+                            Text("Settings")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color.orange)
+                                .padding(10)
+                            Spacer()
+                        }
                         // Name input field
                         InputSection(title: "Name", value: $name)
 
