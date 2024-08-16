@@ -1,36 +1,32 @@
-//
-//  MainView.swift
-//  ShapeShift
-//
-//  Created by Sanath Warad on 14/7/24.
-//
-
 import SwiftUI
 
 struct MainView: View {
     let date = Date()
     @AppStorage("isDarkMode") var isDarkMode = false
+    
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
-                Text("Hi there")
-            }
-            .navigationTitle(formattedDate)
-            .toolbar {
-                Button {
-                    isDarkMode.toggle()
-                } label: {
-                    isDarkMode ? Image(systemName: "moon.stars") : Image(systemName: "sun.max")
+                NavigationLink(destination: WorkoutPage()) { // Instantiate WorkoutPage with ()
+                    HStack {
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                        Text("Item 1")
+                            .font(.headline)
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
                 }
+                .padding()
+                
+                // Additional UI elements can go here
             }
+            .navigationTitle("Main View") // Set the navigation title
         }
     }
-    var formattedDate: String {
-        DateFormatter.custom.string(from: date)
-    }
 }
-
-
 
 #Preview {
     MainView()
