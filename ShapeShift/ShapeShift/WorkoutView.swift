@@ -1,4 +1,5 @@
 import SwiftUI
+import AVKit
 
 // MainTabView containing the tab items
 struct MainTabView: View {
@@ -52,15 +53,18 @@ struct WorkoutPage: View {
                 
                 VStack(spacing: 15) {
                     NavigationLink(destination: RunningView()) {
-                        WorkoutItemView(title: "Running", description: "Exercise info")
+                        WorkoutItemView(title: "Running", description: "Improve cardiovascular health and endurance")
+                            .multilineTextAlignment(.leading)
                     }
                     
                     NavigationLink(destination: CyclingView()) {
-                        WorkoutItemView(title: "Cycling", description: "Exercise info")
+                        WorkoutItemView(title: "Cycling", description: "Low-impact exercise for leg strength and mobility")
+                            .multilineTextAlignment(.leading)
                     }
                     
                     NavigationLink(destination: SwimmingView()) {
-                        WorkoutItemView(title: "Swimming", description: "Exercise info")
+                        WorkoutItemView(title: "Swimming", description: "Full-body workout for endurance and relaxation")
+                            .multilineTextAlignment(.leading)
                     }
                 }
                 .padding(.horizontal, 27)
@@ -70,13 +74,13 @@ struct WorkoutPage: View {
                     .padding(.leading, 27)
                 
                 NavigationLink(destination: PullUpsView()) {
-                    WorkoutItemView(title: "Pull-Ups", description: "Exercise info")
+                    WorkoutItemView(title: "Pull-Ups", description: "Strengthen upper body muscles")
+                        .multilineTextAlignment(.leading)
                 }
                 .padding(.horizontal, 27)
             }
             .padding(.top, 40)
         }
-        .navigationTitle("Workouts")
     }
 }
 
@@ -105,9 +109,10 @@ struct WorkoutItemView: View {
                 
                 Spacer()
                 
-                Image(systemName: "arrow.right.circle.fill")
+                Image(systemName: "arrow.right")
                     .foregroundColor(.orange)
                     .padding(.trailing, 20)
+                    .accessibilityLabel("Navigate to \(title) details")
             }
         }
         .frame(maxWidth: .infinity)
@@ -117,29 +122,71 @@ struct WorkoutItemView: View {
 // Placeholder views for different workout types
 struct RunningView: View {
     var body: some View {
-        Text("Running View")
-            .navigationTitle("Running")
+        ExerciseDetailView(title: "Running Exercise", description: """
+            Running is a great way to improve cardiovascular health, burn calories, and boost your mood. Make sure to warm up before starting and maintain a steady pace throughout your run.
+            """, videoName: "Man Weights Fitness")
     }
 }
 
 struct CyclingView: View {
     var body: some View {
-        Text("Cycling View")
-            .navigationTitle("Cycling")
+        ExerciseDetailView(title: "Cycling Exercise", description: """
+            Cycling is an excellent low-impact exercise that strengthens your legs, improves joint mobility, and increases cardiovascular fitness. Always wear a helmet and stay hydrated.
+            """, videoName: "Man Weights Fitness")
     }
 }
 
 struct SwimmingView: View {
     var body: some View {
-        Text("Swimming View")
-            .navigationTitle("Swimming")
+        ExerciseDetailView(title: "Swimming Exercise", description: """
+            Swimming is a full-body workout that builds endurance, muscle strength, and cardiovascular fitness. It’s also a great way to cool down and relax after a long day.
+            """, videoName: "Man Weights Fitness")
     }
 }
 
 struct PullUpsView: View {
     var body: some View {
-        Text("Pull-Ups View")
-            .navigationTitle("Pull-Ups")
+        ExerciseDetailView(title: "Pull-Ups Exercise", description: """
+            Pull-ups are a fantastic way to strengthen your upper body, particularly your back, shoulders, and arms. Keep your core tight and focus on controlled movements for maximum benefit.
+            """, videoName: "Man Weights Fitness")
+    }
+}
+
+// Reusable detail view for exercises
+struct ExerciseDetailView: View {
+    var title: String
+    var description: String
+    var videoName: String
+    
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                // Safe unwrapping of video URL
+                if let videoURL = Bundle.main.url(forResource: videoName, withExtension: "mp4") {
+                    VideoPlayer(player: AVPlayer(url: videoURL))
+                        .frame(height: 250)
+                        .cornerRadius(10)
+                        .shadow(radius: 4)
+                        .accessibilityLabel("\(title) Video")
+                } else {
+                    Text("Video not available")
+                        .foregroundColor(.red)
+                        .font(.headline)
+                }
+                
+                Text(title)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                
+                Text(description)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .padding(.top, 5)
+            }
+            .padding()
+            .navigationTitle(title)
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
