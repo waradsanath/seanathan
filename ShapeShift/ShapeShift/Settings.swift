@@ -107,13 +107,6 @@ struct SettingsView: View {
                                 .cornerRadius(10)
                         }
                         
-                        Button(action: clearFields) {
-                            Text("Clear")
-                                .padding(10)
-                                .background(Color.gray)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                        }
                     }
                     .padding(10)
                 }
