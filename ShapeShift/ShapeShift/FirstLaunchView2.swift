@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct FirstLaunchView2: View {
-    @AppStorage("Height") var height = ""
+    @AppStorage("weight") var weight: String = ""
+    @AppStorage("height") var height: String = ""
+    @AppStorage("neck") var neck: String = ""
+    @AppStorage("waist") var waist: String = ""
     var body: some View {
         NavigationStack {
             VStack {
@@ -23,15 +26,15 @@ struct FirstLaunchView2: View {
                     .foregroundStyle(Color.orange)
                 VStack {
                     HStack {
-                        InputView(title: "Height", unit: "cm")
+                        InputView(text: $height, title: "Height", unit: "cm")
                             .padding(.leading)
-                        InputView(title: "Weight", unit: "kg")
+                        InputView(text: $weight, title: "Weight", unit: "kg")
                             .padding(.trailing)
                     }
                     HStack {
-                        InputView(title: "Neck Circumference", unit: "cm")
+                        InputView(text: $neck, title: "Neck Circumference", unit: "cm")
                             .padding(.leading)
-                        InputView(title: "Waist Circumference", unit: "cm")
+                        InputView(text: $waist, title: "Waist Circumference", unit: "cm")
                             .padding(.trailing)
                     }
                 }

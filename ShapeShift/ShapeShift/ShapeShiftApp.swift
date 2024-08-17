@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct ShapeShiftApp: App {
+    @StateObject var healthManager = HealthManager()
     @AppStorage("isDarkMode") var isDarkMode = false
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.orange]
@@ -18,6 +19,7 @@ struct ShapeShiftApp: App {
             ContentView()
                 .preferredColorScheme(isDarkMode ? .dark: .light)
                 .tint(Color.orange)
+                .environmentObject(healthManager)
         }
     }
 }

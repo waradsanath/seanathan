@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct InputView: View {
+    @Binding var text: String
     var title: String
     var unit: String
     var body: some View {
@@ -17,7 +18,7 @@ struct InputView: View {
                 .font(.system(size: 20))
                 .padding(.top)
             HStack {
-                TextField("Enter \(title)", text: .constant(""))
+                TextField("Enter \(title)", text: $text)
                     .padding()
                     .background(Color(.systemGray4))
                     .cornerRadius(10)
@@ -28,5 +29,5 @@ struct InputView: View {
 }
 
 #Preview {
-    InputView(title: "Title", unit: "unit")
+    InputView(text: .constant("title"), title: "Title", unit: "unit")
 }

@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		812693E92C5F560600052D79 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812693E82C5F560600052D79 /* DateFormatter.swift */; };
 		812693EE2C5F565800052D79 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812693ED2C5F565800052D79 /* DietView.swift */; };
-		812693F02C5F566700052D79 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812693EF2C5F566700052D79 /* Settings.swift */; };
 		812693F22C5F567000052D79 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812693F12C5F567000052D79 /* WorkoutView.swift */; };
+		81279C782C698C5800724F47 /* TabMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81279C772C698C5800724F47 /* TabMainView.swift */; };
+		81292B332C674E9900D5CDCD /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81292B322C674E9900D5CDCD /* HealthManager.swift */; };
+		8142D3B12C6A239E006D873D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142D3B02C6A239E006D873D /* SettingsView.swift */; };
 		819BDEAB2C42579500A94FF6 /* ShapeShiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BDEAA2C42579500A94FF6 /* ShapeShiftApp.swift */; };
 		819BDEAD2C42579500A94FF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BDEAC2C42579500A94FF6 /* ContentView.swift */; };
 		819BDEAF2C42579700A94FF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819BDEAE2C42579700A94FF6 /* Assets.xcassets */; };
@@ -28,8 +30,12 @@
 /* Begin PBXFileReference section */
 		812693E82C5F560600052D79 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		812693ED2C5F565800052D79 /* DietView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
-		812693EF2C5F566700052D79 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		812693F12C5F567000052D79 /* WorkoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		81279C772C698C5800724F47 /* TabMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMainView.swift; sourceTree = "<group>"; };
+		81292B322C674E9900D5CDCD /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		813E85E32C7075FA00D57EBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		813E85E42C7076CB00D57EBA /* ShapeShift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShapeShift.entitlements; sourceTree = "<group>"; };
+		8142D3B02C6A239E006D873D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		819BDEA72C42579500A94FF6 /* ShapeShift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShapeShift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		819BDEAA2C42579500A94FF6 /* ShapeShiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeShiftApp.swift; sourceTree = "<group>"; };
 		819BDEAC2C42579500A94FF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,8 +81,12 @@
 		819BDEA92C42579500A94FF6 /* ShapeShift */ = {
 			isa = PBXGroup;
 			children = (
+				813E85E42C7076CB00D57EBA /* ShapeShift.entitlements */,
+				813E85E32C7075FA00D57EBA /* Info.plist */,
 				819BDEAA2C42579500A94FF6 /* ShapeShiftApp.swift */,
 				819BDEAC2C42579500A94FF6 /* ContentView.swift */,
+				81279C772C698C5800724F47 /* TabMainView.swift */,
+				8142D3B02C6A239E006D873D /* SettingsView.swift */,
 				81F227A02C43BA94002F9F8A /* FirstLaunchView.swift */,
 				81BBA0802C54E1F3009B19CA /* FirstLaunchTabView.swift */,
 				81BBA0862C54F5AF009B19CA /* FirstLaunchView3.swift */,
@@ -84,9 +94,9 @@
 				81BBA0842C54EA61009B19CA /* FirstLaunchView2.swift */,
 				81BBA1052C58760C009B19CA /* InputView.swift */,
 				81F2279E2C43BA39002F9F8A /* MainView.swift */,
+				81292B322C674E9900D5CDCD /* HealthManager.swift */,
 				812693E82C5F560600052D79 /* DateFormatter.swift */,
 				812693ED2C5F565800052D79 /* DietView.swift */,
-				812693EF2C5F566700052D79 /* Settings.swift */,
 				812693F12C5F567000052D79 /* WorkoutView.swift */,
 				81BBA07E2C54C539009B19CA /* ShapeShift1.png */,
 				819BDEAE2C42579700A94FF6 /* Assets.xcassets */,
@@ -174,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8142D3B12C6A239E006D873D /* SettingsView.swift in Sources */,
 				81BBA0852C54EA61009B19CA /* FirstLaunchView2.swift in Sources */,
 				81F227A12C43BA94002F9F8A /* FirstLaunchView.swift in Sources */,
 				812693F22C5F567000052D79 /* WorkoutView.swift in Sources */,
@@ -181,12 +192,13 @@
 				81BBA0812C54E1F3009B19CA /* FirstLaunchTabView.swift in Sources */,
 				812693E92C5F560600052D79 /* DateFormatter.swift in Sources */,
 				81F2279F2C43BA39002F9F8A /* MainView.swift in Sources */,
-				812693F02C5F566700052D79 /* Settings.swift in Sources */,
 				812693EE2C5F565800052D79 /* DietView.swift in Sources */,
+				81279C782C698C5800724F47 /* TabMainView.swift in Sources */,
 				819BDEAD2C42579500A94FF6 /* ContentView.swift in Sources */,
 				81BBA1062C58760D009B19CA /* InputView.swift in Sources */,
 				81BBA0872C54F5AF009B19CA /* FirstLaunchView3.swift in Sources */,
 				819BDEAB2C42579500A94FF6 /* ShapeShiftApp.swift in Sources */,
+				81292B332C674E9900D5CDCD /* HealthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,12 +329,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShapeShift/ShapeShift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShapeShift/Preview Content\"";
 				DEVELOPMENT_TEAM = W254VRMYYH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShapeShift/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Please allow access to enjoy all the features of our application";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -346,12 +361,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShapeShift/ShapeShift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShapeShift/Preview Content\"";
 				DEVELOPMENT_TEAM = W254VRMYYH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShapeShift/Info.plist;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Please allow access to enjoy all the features of our application";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

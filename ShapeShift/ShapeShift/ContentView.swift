@@ -26,7 +26,7 @@ struct ContentView: View {
         if isFirstLaunch {
             FirstLaunchTabView()
         } else {
-            MainView()
+            TabMainView()
         }
     }
 }

@@ -7,13 +7,24 @@
 
 import SwiftUI
 
+struct Activity {
+    let id: Int
+    let title: String
+    let subtitle: String
+    let image: String
+    let amount: String
+}
+
 struct MainView: View {
     let date = Date()
+    @EnvironmentObject var manager: HealthManager
     @AppStorage("isDarkMode") var isDarkMode = false
+    @State var activity: Activity
+    
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Hi there")
+                
             }
             .navigationTitle(formattedDate)
             .toolbar {
@@ -33,5 +44,5 @@ struct MainView: View {
 
 
 #Preview {
-    MainView()
+    MainView(activity: Activity(id: 0, title: "", subtitle: <#T##String#>, image: <#T##String#>, amount: <#T##String#>))
 }
