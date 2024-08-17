@@ -26,6 +26,7 @@ struct SettingsView: View {
                     
                     // Name input field
                     InputSection(title: "Name", value: $name)
+                        .padding([.leading, .trailing], 10)
                     
                     // Gender picker and age input
                     VStack(alignment: .leading, spacing: 15) {
