@@ -9,22 +9,21 @@ import SwiftUI
 
 struct Activity {
     let id: Int
-    let title: String
-    let subtitle: String
-    let image: String
-    let amount: String
+    let count: Int
+    let goal: Int
 }
 
 struct MainView: View {
     let date = Date()
     @EnvironmentObject var manager: HealthManager
     @AppStorage("isDarkMode") var isDarkMode = false
-    @State var activity: Activity
+    let activity: Activity
     
     var body: some View {
         NavigationStack {
             VStack {
-                
+                ProgressBar(totalWidth: 370, percentage: Double(activity.count), colorBackground: Color.gray, colorForeground: Color.green)
+                    .padding()
             }
             .navigationTitle(formattedDate)
             .toolbar {
@@ -35,6 +34,9 @@ struct MainView: View {
                 }
             }
         }
+        .onAppear {
+            manager.fetchTodaySteps()
+        }
     }
     var formattedDate: String {
         DateFormatter.custom.string(from: date)
@@ -44,5 +46,5 @@ struct MainView: View {
 
 
 #Preview {
-    MainView(activity: Activity(id: 0, title: "", subtitle: <#T##String#>, image: <#T##String#>, amount: <#T##String#>))
+    MainView(activity: Activity(id: 0, count: 1, goal: 1))
 }

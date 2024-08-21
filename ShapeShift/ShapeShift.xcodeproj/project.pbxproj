@@ -13,6 +13,7 @@
 		812693F22C5F567000052D79 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812693F12C5F567000052D79 /* WorkoutView.swift */; };
 		81279C782C698C5800724F47 /* TabMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81279C772C698C5800724F47 /* TabMainView.swift */; };
 		81292B332C674E9900D5CDCD /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81292B322C674E9900D5CDCD /* HealthManager.swift */; };
+		813E85E62C70805200D57EBA /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813E85E52C70805200D57EBA /* ProgressBar.swift */; };
 		8142D3B12C6A239E006D873D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8142D3B02C6A239E006D873D /* SettingsView.swift */; };
 		819BDEAB2C42579500A94FF6 /* ShapeShiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BDEAA2C42579500A94FF6 /* ShapeShiftApp.swift */; };
 		819BDEAD2C42579500A94FF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BDEAC2C42579500A94FF6 /* ContentView.swift */; };
@@ -37,6 +38,7 @@
 		81292B322C674E9900D5CDCD /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		813E85E32C7075FA00D57EBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		813E85E42C7076CB00D57EBA /* ShapeShift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShapeShift.entitlements; sourceTree = "<group>"; };
+		813E85E52C70805200D57EBA /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		8142D3B02C6A239E006D873D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		819BDEA72C42579500A94FF6 /* ShapeShift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShapeShift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		819BDEAA2C42579500A94FF6 /* ShapeShiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeShiftApp.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				81BBA1052C58760C009B19CA /* InputView.swift */,
 				81F2279E2C43BA39002F9F8A /* MainView.swift */,
 				81292B322C674E9900D5CDCD /* HealthManager.swift */,
+				813E85E52C70805200D57EBA /* ProgressBar.swift */,
 				812693E82C5F560600052D79 /* DateFormatter.swift */,
 				812693ED2C5F565800052D79 /* DietView.swift */,
 				812693F12C5F567000052D79 /* WorkoutView.swift */,
@@ -194,6 +197,7 @@
 				812693F22C5F567000052D79 /* WorkoutView.swift in Sources */,
 				81BBA0832C54E3D7009B19CA /* FirstLaunchView1.swift in Sources */,
 				81BBA0812C54E1F3009B19CA /* FirstLaunchTabView.swift in Sources */,
+				813E85E62C70805200D57EBA /* ProgressBar.swift in Sources */,
 				812693E92C5F560600052D79 /* DateFormatter.swift in Sources */,
 				81F2279F2C43BA39002F9F8A /* MainView.swift in Sources */,
 				812693EE2C5F565800052D79 /* DietView.swift in Sources */,
