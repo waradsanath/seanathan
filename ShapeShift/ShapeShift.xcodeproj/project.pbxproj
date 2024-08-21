@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A0DE24A2C6F80F400E0011A /* Man Weights Fitness.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1A0DE2492C6F80F400E0011A /* Man Weights Fitness.mp4 */; };
 		812693E92C5F560600052D79 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812693E82C5F560600052D79 /* DateFormatter.swift */; };
 		812693EE2C5F565800052D79 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812693ED2C5F565800052D79 /* DietView.swift */; };
 		812693F22C5F567000052D79 /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812693F12C5F567000052D79 /* WorkoutView.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A0DE2492C6F80F400E0011A /* Man Weights Fitness.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Man Weights Fitness.mp4"; sourceTree = "<group>"; };
 		812693E82C5F560600052D79 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		812693ED2C5F565800052D79 /* DietView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
 		812693F12C5F567000052D79 /* WorkoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		819BDEB02C42579700A94FF6 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				1A0DE2492C6F80F400E0011A /* Man Weights Fitness.mp4 */,
 				819BDEB12C42579700A94FF6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81BBA07F2C54C53A009B19CA /* ShapeShift1.png in Resources */,
+				1A0DE24A2C6F80F400E0011A /* Man Weights Fitness.mp4 in Resources */,
 				819BDEB22C42579700A94FF6 /* Preview Assets.xcassets in Resources */,
 				819BDEAF2C42579700A94FF6 /* Assets.xcassets in Resources */,
 			);

@@ -24,15 +24,12 @@ struct DietView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.black
-                    .ignoresSafeArea()
                 ScrollView {
                     
                     VStack(alignment: .leading, spacing: 10) {
                         
                         HStack(){
                             Text("Limit")
-                                .foregroundColor(.white)
                                 .bold()
                                 .font(.system(size: 30))
                             
@@ -66,7 +63,6 @@ struct DietView: View {
                     
                     HStack {
                         Text("Meals")
-                            .foregroundColor(.white)
                             .bold()
                             .multilineTextAlignment(.leading)
                             .font(.system(size: 30))
@@ -81,9 +77,15 @@ struct DietView: View {
                                 .font(.system(size: 21))
                         }
                     }
-                    NavigationLink(destination: RunningView()) {
-                        WorkoutItemView(title: "Running", description: "Exercise info, naggy sus mogijvisdjvs")
+                    NavigationLink(destination: SkibidiSlicersView()) {
+                        WorkoutItemView(title: "Skibidi Slicers", description: "Details here")
                     }
+                    .padding([.leading, .trailing], 10)
+                    
+                    NavigationLink(destination: PumpkinSpiceLatteView()) {
+                        WorkoutItemView(title: "Pumpkin Spice Latte", description: "Details here")
+                    }
+                    .padding([.leading, .trailing], 10)
                     
                     NavigationStack {
                         // Navigation content
@@ -100,7 +102,21 @@ struct DietView: View {
     }
 }
 
+struct SkibidiSlicersView: View{
+    var body: some View{
+        ZStack{
+            Text("Skibidi Slicers sample page")
+        }
+    }
+}
 
+struct PumpkinSpiceLatteView: View{
+    var body: some View{
+        ZStack{
+            Text("Pumpkin Spice Latte sample page")
+        }
+    }
+}
 
 
 
