@@ -15,13 +15,17 @@ var progressBarWidth: CGFloat {
     return maxWidth * CGFloat(min(percentage, 100)) / 100
 }
 
-let meals = ["Breakfast", "Lunch", "Dinner"]
 
 
+struct DietMeal {
+    @Binding var food: String
+    @Binding var foodDescription: String
+    @Binding var meal: String
+    @Binding var caloricCount: String
+}
 
 struct DietView: View {
-    @Binding var food: String
-    @Binding var caloricValue: Int
+    
     @State private var itemList = [
         "item 1",
         "item 2",
@@ -31,6 +35,9 @@ struct DietView: View {
     @State private var newListItem = " "
     
     @State var shouldPresentSheet = false
+    
+    @State private var meals: [DietMeal] = []
+    
     
     var body: some View {
         NavigationStack {
@@ -106,10 +113,7 @@ struct DietView: View {
                     
                 }
                 
-                NavigationLink(destination: DietEditView()) {
-                    WorkoutItemView(title: food, description: "Strengthen upper body muscles")
-                }
-                .padding()
+                
                 DietMealView(food: "", foodDescription: "make from skibid and slice em up", meal: "Lunch", caloricCount: "500kcal")
                 
                 
@@ -118,10 +122,22 @@ struct DietView: View {
                 } .sheet(isPresented: $shouldPresentSheet, onDismiss: didDismiss) {
                     DietEditView()
                     Button("Done") {
+                        meals.append(DietMeal(food: <#T##Binding<String>#>, foodDescription: <#T##Binding<String>#>, meal: <#T##Binding<String>#>, caloricCount: <#T##Binding<String>#>))
+                        
+                                        
                         shouldPresentSheet.toggle()
                         
                     }
                     .buttonStyle(.borderedProminent)
+                }
+                
+                List(meals, id: \.food) { meal in
+                    DietMealView(
+                        food: meal.food,
+                        foodDescription: meal.foodDescription,
+                        meal: meal.meal,
+                        caloricCount: meal.caloricCount
+                    )
                 }
                 
                 
@@ -166,7 +182,7 @@ struct DietView: View {
     // }
     
     #Preview {
-        DietView(food: .constant("fes"), caloricValue: .constant(69))
+        DietView as! any View
     }
     
     

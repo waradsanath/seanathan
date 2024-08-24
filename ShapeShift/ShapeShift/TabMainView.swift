@@ -14,7 +14,7 @@ struct TabMainView: View {
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
-            DietView()
+            DietView(food: .constant(""), caloricValue: .constant(0))
                 .tabItem {
                     Label("Diet", systemImage: "fork.knife")
                 }
