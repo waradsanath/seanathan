@@ -23,7 +23,7 @@ struct MainView: View {
         NavigationStack {
             VStack {
                 ProgressBar(totalWidth: 370, percentage: Double(activity.count) ?? 0, colorBackground: Color.gray, colorForeground: Color.green)
-                    .padding()
+                    .padding(.horizontal)
             }
             .navigationTitle(formattedDate)
             .toolbar {
