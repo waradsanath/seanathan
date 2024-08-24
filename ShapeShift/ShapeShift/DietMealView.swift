@@ -3,7 +3,7 @@ import SwiftUI
 
 struct DietMealView: View {
     
-    var food: String
+    var foodName: String
     var foodDescription: String
     var meal: String
     var caloricCount: Int
@@ -11,7 +11,7 @@ struct DietMealView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(food)
+                Text(foodName)
                     .font(.headline)
                     
                 Text(foodDescription)
@@ -29,12 +29,12 @@ struct DietMealView: View {
             }
         }
         .padding()
-        .background(Color.gray.opacity(0.4))
+        
         .cornerRadius(10)
         .padding()
     }
 }
 
 #Preview {
-    DietMealView(food: "Skbidi Slicers", foodDescription: "make from skibid and slice em up", meal: "Lunch", caloricCount: 0)
+    DietMealView(foodName: "Skbidi Slicers", foodDescription: "make from skibid and slice em up", meal: "Lunch", caloricCount: 0)
 }

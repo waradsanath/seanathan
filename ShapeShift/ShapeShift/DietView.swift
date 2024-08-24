@@ -17,8 +17,8 @@ var progressBarWidth: CGFloat {
 
 
 
-struct DietMeal {
-    @Binding var food: String
+struct dietMeal {
+    @Binding var foodName: String
     @Binding var foodDescription: String
     @Binding var meal: String
     @Binding var caloricCount: Int
@@ -26,126 +26,117 @@ struct DietMeal {
 
 struct DietView: View {
     
- 
+    
     @State private var editing: Bool = false
     @State private var showingAlert = false
     @State private var newListItem = " "
     
     @State var shouldPresentSheet = false
     
-    @State private var meals: [DietMeal] = []
+    @State private var meals: [dietMeal] = []
     
+    let DietMeal = dietMeal(foodName: .constant(""), foodDescription: .constant(""), meal: .constant(""), caloricCount: .constant(10))
     
     var body: some View {
         NavigationStack {
             
-            ScrollView {
+            
+            
+            VStack(alignment: .leading, spacing: 10) {
                 
-                VStack(alignment: .leading, spacing: 10) {
-                    
-                    HStack(){
-                        Text("Limit")
-                        
-                            .bold()
-                            .font(.system(size: 30))
-                        
-                        
-                        Spacer()
-                        
-                        Text(String(floor(percentage)) + "% of " + String(dailyKcalIntake))
-                            .foregroundColor(percentage > 100 ? .red : .gray)
-                        
-                    }
-                    
-                    ZStack(alignment: .leading) {
-                        // Background of progress bar
-                        RoundedRectangle(cornerRadius: 100)
-                            .fill(Color.gray.opacity(0.3))
-                            .frame(height: 20)
-                        
-                        
-                        // Foreground of progress bar
-                        RoundedRectangle(cornerRadius: 100)
-                            .fill(Color.red)
-                            .frame(width: progressBarWidth, height: 20)
-                        
-                        
-                    }
-                    
-                    
-                }
-                .padding()
-                
-                HStack {
-                    Text("Meals")
+                HStack(){
+                    Text("Limit")
                     
                         .bold()
-                        .multilineTextAlignment(.leading)
                         .font(.system(size: 30))
-                        .padding()
+                    
                     
                     Spacer()
                     
-                    
-                    
-                    if editing == false {
-                        Button {
-                            editing.toggle()
-                        } label: {
-                            Text("Edit")
-                            
-                                .padding()
-                                .font(.system(size: 21))
-                        }
-                        
-                    } else {
-                        Button {
-                            editing.toggle()
-                        } label: {
-                            Image(systemName: "plus")
-                                .padding()
-                                .font(.system(size: 21))
-                        }
-                    }
+                    Text(String(floor(percentage)) + "% of " + String(dailyKcalIntake))
+                        .foregroundColor(percentage > 100 ? .red : .gray)
                     
                 }
                 
-                
-                DietMealView(food: "", foodDescription: "make from skibid and slice em up", meal: "Lunch", caloricCount: 0)
-                
-                
-                Button("Add Meal") {
-                    shouldPresentSheet.toggle()
-                } .sheet(isPresented: $shouldPresentSheet, onDismiss: didDismiss) {
-                    DietEditView()
-                    Button("Done") {
-                        meals.append(DietMeal(food: .constant(""), foodDescription: .constant(""), meal: .constant(""), caloricCount: .constant(0)))
-                        
-                                        
-                        shouldPresentSheet.toggle()
-                        
-                    }
-                    .buttonStyle(.borderedProminent)
+                ZStack(alignment: .leading) {
+                    // Background of progress bar
+                    RoundedRectangle(cornerRadius: 100)
+                        .fill(Color.gray.opacity(0.3))
+                        .frame(height: 20)
+                    
+                    
+                    // Foreground of progress bar
+                    RoundedRectangle(cornerRadius: 100)
+                        .fill(Color.red)
+                        .frame(width: progressBarWidth, height: 20)
+                    
+                    
                 }
-                
-                List(meals, id: \.food) { meal in
-                    DietMealView(
-                        food: meal.food,
-                        foodDescription: meal.foodDescription,
-                        meal: meal.meal,
-                        caloricCount: meal.caloricCount
-                    )
-                }
-                
-                
-                
-                
-                
-                
-               
                 
                 
             }
+            .padding()
+            
+            HStack {
+                Text("Meals")
+                
+                    .bold()
+                    .multilineTextAlignment(.leading)
+                    .font(.system(size: 30))
+                    .padding()
+                
+                Spacer()
+                
+                
+                
+                if editing == false {
+                    Button {
+                        editing.toggle()
+                    } label: {
+                        Text("Edit")
+                        
+                            .padding()
+                            .font(.system(size: 21))
+                    }
+                    
+                } else {
+                    Button {
+                        editing.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                            .padding()
+                            .font(.system(size: 21))
+                    }
+                }
+                
+            }
+            
+
+            
+            Button("Add Meal") {
+                shouldPresentSheet.toggle()
+            } .sheet(isPresented: $shouldPresentSheet, onDismiss: didDismiss) {
+                DietEditView()
+                Button("Done") {
+                    meals.append(DietMeal)
+                    
+                    
+                    shouldPresentSheet.toggle()
+                    
+                }
+                .buttonStyle(.borderedProminent)
+            }	
+            
+            List(meals, id: \.foodName) { meal in
+                           DietMealView(
+                            foodName: DietMeal.foodName,
+                               foodDescription: DietMeal.foodDescription,
+                               meal: DietMeal.meal,
+                               caloricCount: Int(DietMeal.caloricCount)
+                           )
+                       }
+            
+            
             .navigationTitle("Diet")
         }
         
@@ -154,46 +145,56 @@ struct DietView: View {
         
     }
 }
-            
-            //   var numberOfLayers: Int {
-            //     return Int(floor(percentage / 100))
-            //   }
-        
-    
-    
-    
-    
-    
 
-    // func progressBar() {
-    //     let percentage = (kcals / dailyKcalIntake) * 100
-    //  var numberOfLayers: Int {
-    //      Int(floor(percentage / 100))
-    //  }
-    //
-    //  if percentage.truncatingRemainder(dividingBy: 100) == 0 {
-    //        var newBarpercentage = Int(percentage) - (Int(numberOfLayers) * 100)
-    //      layerNumber.append(numberOfLayers)
-    //  }
-    
-    // }
-    
-    #Preview {
-        DietView()
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+//   var numberOfLayers: Int {
+//     return Int(floor(percentage / 100))
+//   }
+
+
+
+
+
+
+
+// func progressBar() {
+//     let percentage = (kcals / dailyKcalIntake) * 100
+//  var numberOfLayers: Int {
+//      Int(floor(percentage / 100))
+//  }
+//
+//  if percentage.truncatingRemainder(dividingBy: 100) == 0 {
+//        var newBarpercentage = Int(percentage) - (Int(numberOfLayers) * 100)
+//      layerNumber.append(numberOfLayers)
+//  }
+
+// }
+
+#Preview {
+    DietView()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
