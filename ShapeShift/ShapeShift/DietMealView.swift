@@ -6,7 +6,7 @@ struct DietMealView: View {
     var food: String
     var foodDescription: String
     var meal: String
-    var caloricCount: String
+    var caloricCount: Int
     
     var body: some View {
         HStack {
@@ -20,7 +20,7 @@ struct DietMealView: View {
             }
             Spacer()
             VStack(alignment: .trailing) {
-                Text(caloricCount)
+                Text(String(caloricCount))
                     .font(.headline)
                     
                 Text(meal)
@@ -36,5 +36,5 @@ struct DietMealView: View {
 }
 
 #Preview {
-    DietMealView(food: "Skbidi Slicers", foodDescription: "make from skibid and slice em up", meal: "Lunch", caloricCount: "500kcal")
+    DietMealView(food: "Skbidi Slicers", foodDescription: "make from skibid and slice em up", meal: "Lunch", caloricCount: 0)
 }
