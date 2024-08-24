@@ -179,7 +179,7 @@ struct DietView: View {
     // }
     
     #Preview {
-        DietView as! any View
+        DietView()
     }
     
     
