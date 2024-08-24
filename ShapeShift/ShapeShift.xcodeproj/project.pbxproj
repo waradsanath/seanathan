@@ -27,6 +27,9 @@
 		81BBA1062C58760D009B19CA /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BBA1052C58760C009B19CA /* InputView.swift */; };
 		81F2279F2C43BA39002F9F8A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F2279E2C43BA39002F9F8A /* MainView.swift */; };
 		81F227A12C43BA94002F9F8A /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F227A02C43BA94002F9F8A /* FirstLaunchView.swift */; };
+		D9BB33722C761CBA00C5DA4F /* DietEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB33712C761CBA00C5DA4F /* DietEditView.swift */; };
+		D9BB33742C761CD800C5DA4F /* DietInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB33732C761CD800C5DA4F /* DietInputView.swift */; };
+		D9BB33762C761D1700C5DA4F /* DietMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB33752C761D1700C5DA4F /* DietMealView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		81BBA1052C58760C009B19CA /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		81F2279E2C43BA39002F9F8A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		81F227A02C43BA94002F9F8A /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
+		D9BB33712C761CBA00C5DA4F /* DietEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietEditView.swift; sourceTree = "<group>"; };
+		D9BB33732C761CD800C5DA4F /* DietInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietInputView.swift; sourceTree = "<group>"; };
+		D9BB33752C761D1700C5DA4F /* DietMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietMealView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,9 @@
 				813E85E52C70805200D57EBA /* ProgressBar.swift */,
 				812693E82C5F560600052D79 /* DateFormatter.swift */,
 				812693ED2C5F565800052D79 /* DietView.swift */,
+				D9BB33712C761CBA00C5DA4F /* DietEditView.swift */,
+				D9BB33732C761CD800C5DA4F /* DietInputView.swift */,
+				D9BB33752C761D1700C5DA4F /* DietMealView.swift */,
 				812693F12C5F567000052D79 /* WorkoutView.swift */,
 				81BBA07E2C54C539009B19CA /* ShapeShift1.png */,
 				819BDEAE2C42579700A94FF6 /* Assets.xcassets */,
@@ -194,6 +203,7 @@
 				8142D3B12C6A239E006D873D /* SettingsView.swift in Sources */,
 				81BBA0852C54EA61009B19CA /* FirstLaunchView2.swift in Sources */,
 				81F227A12C43BA94002F9F8A /* FirstLaunchView.swift in Sources */,
+				D9BB33722C761CBA00C5DA4F /* DietEditView.swift in Sources */,
 				812693F22C5F567000052D79 /* WorkoutView.swift in Sources */,
 				81BBA0832C54E3D7009B19CA /* FirstLaunchView1.swift in Sources */,
 				81BBA0812C54E1F3009B19CA /* FirstLaunchTabView.swift in Sources */,
@@ -203,7 +213,9 @@
 				812693EE2C5F565800052D79 /* DietView.swift in Sources */,
 				81279C782C698C5800724F47 /* TabMainView.swift in Sources */,
 				819BDEAD2C42579500A94FF6 /* ContentView.swift in Sources */,
+				D9BB33742C761CD800C5DA4F /* DietInputView.swift in Sources */,
 				81BBA1062C58760D009B19CA /* InputView.swift in Sources */,
+				D9BB33762C761D1700C5DA4F /* DietMealView.swift in Sources */,
 				81BBA0872C54F5AF009B19CA /* FirstLaunchView3.swift in Sources */,
 				819BDEAB2C42579500A94FF6 /* ShapeShiftApp.swift in Sources */,
 				81292B332C674E9900D5CDCD /* HealthManager.swift in Sources */,

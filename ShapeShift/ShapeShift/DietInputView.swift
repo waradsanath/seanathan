@@ -1,23 +1,58 @@
+//
+//  DietInputView.swift
+//  ShapeShift
+//
+//  Created by T Krobot on 21/8/24.
+//
+
+
+
+
+
+
 import SwiftUI
 
-struct DietEditView: View {
-    @State var text: String
-    var title: String
+struct DietInputView: View {
+    
+    @State var food: String = ""
+    @State var caloricValue: String = ""
+    
+    
+    var foodTitle: String
+    var calorieTitle: String
+    var prompt: String
+    var caloriePrompt: String
     var body: some View {
-        HStack {
-            Text(title)
-            TextField(title, text: $text)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 10)
-                .foregroundColor(.gray)
+        VStack(alignment: .leading, spacing: 20) {
+            Text(foodTitle)
+                .foregroundColor(.black)
+            TextField(prompt, text: $food)
+                .padding(10)
                 .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray, lineWidth: 0.5)
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color.gray, lineWidth: 1)
                 )
+            
+        
+        
+        
+     
+            Text(calorieTitle)
+                .foregroundColor(.black)
+            TextField(prompt, text: $caloricValue)
+                .padding(10)
+                .background(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color.gray, lineWidth: 1)
+                )
+            
         }
+        .padding()
+      
     }
+    
 }
 
 #Preview {
-    DietEditView(text: "Enter food here", title: "Food")
+    DietInputView(foodTitle: "Food", calorieTitle: "Calories", prompt: "Enter food here", caloriePrompt: "Enter calories here")
 }

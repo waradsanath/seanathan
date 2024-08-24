@@ -17,131 +17,186 @@ var progressBarWidth: CGFloat {
 
 
 
-
+struct DietMeal {
+    @Binding var food: String
+    @Binding var foodDescription: String
+    @Binding var meal: String
+    @Binding var caloricCount: String
+}
 
 struct DietView: View {
     
+    @State private var itemList = [
+        "item 1",
+        "item 2",
+        "item 3"]
+    @State private var editing: Bool = false
+    @State private var showingAlert = false
+    @State private var newListItem = " "
+    
+    @State var shouldPresentSheet = false
+    
+    @State private var meals: [DietMeal] = []
+    
+    
     var body: some View {
         NavigationStack {
-            ZStack {
-                ScrollView {
+            
+            ScrollView {
+                
+                VStack(alignment: .leading, spacing: 10) {
                     
-                    VStack(alignment: .leading, spacing: 10) {
+                    HStack(){
+                        Text("Limit")
                         
-                        HStack(){
-                            Text("Limit")
-                                .bold()
-                                .font(.system(size: 30))
-                            
-                            
-                            Spacer()
-                            
-                            Text(String(floor(percentage)) + "% of " + String(dailyKcalIntake))
-                                .foregroundColor(percentage > 100 ? .red : .gray)
-                            
-                        }
+                            .bold()
+                            .font(.system(size: 30))
                         
-                        ZStack(alignment: .leading) {
-                            // Background of progress bar
-                            Rectangle()
-                                .fill(Color.gray.opacity(0.3))
-                                .frame(height: 20)
-                                .cornerRadius(100)
-                            
-                            // Foreground of progress bar
-                            Rectangle()
-                                .fill(Color.red)
-                                .frame(width: progressBarWidth, height: 20)
-                                .cornerRadius(100)
-                            
-                            
-                        }
+                        
+                        Spacer()
+                        
+                        Text(String(floor(percentage)) + "% of " + String(dailyKcalIntake))
+                            .foregroundColor(percentage > 100 ? .red : .gray)
+                        
+                    }
+                    
+                    ZStack(alignment: .leading) {
+                        // Background of progress bar
+                        RoundedRectangle(cornerRadius: 100)
+                            .fill(Color.gray.opacity(0.3))
+                            .frame(height: 20)
+                        
+                        
+                        // Foreground of progress bar
+                        RoundedRectangle(cornerRadius: 100)
+                            .fill(Color.red)
+                            .frame(width: progressBarWidth, height: 20)
                         
                         
                     }
-                    .padding()
                     
-                    HStack {
-                        Text("Meals")
-                            .bold()
-                            .multilineTextAlignment(.leading)
-                            .font(.system(size: 30))
-                            .padding()
-                        
-                        Spacer()
+                    
+                }
+                .padding()
+                
+                HStack {
+                    Text("Meals")
+                    
+                        .bold()
+                        .multilineTextAlignment(.leading)
+                        .font(.system(size: 30))
+                        .padding()
+                    
+                    Spacer()
+                    
+                    
+                    
+                    if editing == false {
                         Button {
-                            // Action for edit button
+                            editing.toggle()
                         } label: {
                             Text("Edit")
+                            
+                                .padding()
+                                .font(.system(size: 21))
+                        }
+                        
+                    } else {
+                        Button {
+                            editing.toggle()
+                        } label: {
+                            Image(systemName: "plus")
                                 .padding()
                                 .font(.system(size: 21))
                         }
                     }
-                    .padding([.leading, .trailing], 10)
                     
-                    NavigationStack {
-                        // Navigation content
-                    }
                 }
+                
+                
+                DietMealView(food: "", foodDescription: "make from skibid and slice em up", meal: "Lunch", caloricCount: "500kcal")
+                
+                
+                Button("Add Meal") {
+                    shouldPresentSheet.toggle()
+                } .sheet(isPresented: $shouldPresentSheet, onDismiss: didDismiss) {
+                    DietEditView()
+                    Button("Done") {
+                        meals.append(DietMeal(food: <#T##Binding<String>#>, foodDescription: <#T##Binding<String>#>, meal: <#T##Binding<String>#>, caloricCount: <#T##Binding<String>#>))
+                        
+                                        
+                        shouldPresentSheet.toggle()
+                        
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                
+                List(meals, id: \.food) { meal in
+                    DietMealView(
+                        food: meal.food,
+                        foodDescription: meal.foodDescription,
+                        meal: meal.meal,
+                        caloricCount: meal.caloricCount
+                    )
+                }
+                
+                
+                
+                
+                
+                
+               
+                
+                
             }
             .navigationTitle("Diet")
         }
         
+    }
+    func didDismiss() {
         
-     //   var numberOfLayers: Int {
-       //     return Int(floor(percentage / 100))
-     //   }
     }
 }
+            
+            //   var numberOfLayers: Int {
+            //     return Int(floor(percentage / 100))
+            //   }
+        
+    
+    
+    
+    
+    
 
-struct SkibidiSlicersView: View{
-    var body: some View{
-        ZStack{
-            Text("Skibidi Slicers sample page")
-        }
+    // func progressBar() {
+    //     let percentage = (kcals / dailyKcalIntake) * 100
+    //  var numberOfLayers: Int {
+    //      Int(floor(percentage / 100))
+    //  }
+    //
+    //  if percentage.truncatingRemainder(dividingBy: 100) == 0 {
+    //        var newBarpercentage = Int(percentage) - (Int(numberOfLayers) * 100)
+    //      layerNumber.append(numberOfLayers)
+    //  }
+    
+    // }
+    
+    #Preview {
+        DietView as! any View
     }
-}
-
-struct PumpkinSpiceLatteView: View{
-    var body: some View{
-        ZStack{
-            Text("Pumpkin Spice Latte sample page")
-        }
-    }
-}
-
-
-
-// func progressBar() {
-//     let percentage = (kcals / dailyKcalIntake) * 100
-//  var numberOfLayers: Int {
-//      Int(floor(percentage / 100))
-//  }
-//
-//  if percentage.truncatingRemainder(dividingBy: 100) == 0 {
-//        var newBarpercentage = Int(percentage) - (Int(numberOfLayers) * 100)
-//      layerNumber.append(numberOfLayers)
-//  }
-
-// }
-
-#Preview {
-    DietView()
-        .environmentObject(HealthManager())
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
