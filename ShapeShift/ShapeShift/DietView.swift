@@ -111,7 +111,7 @@ struct DietView: View {
                 }
                 
                 
-                DietMealView(food: "", foodDescription: "make from skibid and slice em up", meal: "Lunch", caloricCount: "500kcal")
+                DietMealView(food: "", foodDescription: "make from skibid and slice em up", meal: "Lunch", caloricCount: 0)
                 
                 
                 Button("Add Meal") {
