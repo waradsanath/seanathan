@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>ShapeShift needs permission to share your health data with other fitness apps you choose.</string>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>ShapeShift requires access to your health records to track your fitness progress.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>ShapeShift updates your health metrics to ensure your exercise data is current.</string>
+</dict>
 </plist>

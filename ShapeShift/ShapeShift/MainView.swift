@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Activity {
     let id: Int
-    let count: Int
+    let count: String
     let goal: Int
 }
 
@@ -22,7 +22,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ProgressBar(totalWidth: 370, percentage: Double(activity.count), colorBackground: Color.gray, colorForeground: Color.green)
+                ProgressBar(totalWidth: 370, percentage: Double(activity.count) ?? 0, colorBackground: Color.gray, colorForeground: Color.green)
                     .padding()
             }
             .navigationTitle(formattedDate)
@@ -46,5 +46,6 @@ struct MainView: View {
 
 
 #Preview {
-    MainView(activity: Activity(id: 0, count: 1, goal: 1))
+    MainView(activity: Activity(id: 0, count: "1", goal: 1))
+        .environmentObject(HealthManager())
 }
