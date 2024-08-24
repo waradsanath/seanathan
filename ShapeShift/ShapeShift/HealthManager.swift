@@ -42,8 +42,9 @@ class HealthManager: ObservableObject {
             
             let stepCount = quantity.doubleValue(for: .count())
             let activity = Activity(id: 0, count: "\(stepCount.formattedString())", goal: 10000)
-            
-            self.activities["todaySteps"] = activity
+            DispatchQueue.main.async {
+                self.activities["todaySteps"] = activity
+            }
             
             print(stepCount)
         }
