@@ -17,7 +17,7 @@ extension Date {
 class HealthManager: ObservableObject {
     let healthStore = HKHealthStore()
     
-    @Published var stepCount: [String : Activity] = [:]
+    @Published var activities: [String : Activity] = [:]
     
     init() {
         let steps = HKQuantityType(.stepCount)
@@ -41,12 +41,23 @@ class HealthManager: ObservableObject {
             }
             
             let stepCount = quantity.doubleValue(for: .count())
+            let activity = Activity(id: 0, count: "\(stepCount.formattedString())", goal: 10000)
             
-            let activity = Activity(id: 0, count: Int(stepCount), goal: 10000)
+            self.activities["todaySteps"] = activity
             
             print(stepCount)
         }
         
         healthStore.execute(query)
+    }
+}
+
+extension Double {
+    func formattedString() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 0
+        
+        return numberFormatter.string(from: NSNumber(value: self))!
     }
 }

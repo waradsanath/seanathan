@@ -77,14 +77,6 @@ struct DietView: View {
                                 .font(.system(size: 21))
                         }
                     }
-                    NavigationLink(destination: SkibidiSlicersView()) {
-                        WorkoutItemView(title: "Skibidi Slicers", description: "Details here")
-                    }
-                    .padding([.leading, .trailing], 10)
-                    
-                    NavigationLink(destination: PumpkinSpiceLatteView()) {
-                        WorkoutItemView(title: "Pumpkin Spice Latte", description: "Details here")
-                    }
                     .padding([.leading, .trailing], 10)
                     
                     NavigationStack {
@@ -135,6 +127,7 @@ struct PumpkinSpiceLatteView: View{
 
 #Preview {
     DietView()
+        .environmentObject(HealthManager())
 }
 
 
