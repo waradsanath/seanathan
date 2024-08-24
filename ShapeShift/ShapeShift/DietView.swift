@@ -21,15 +21,12 @@ struct DietMeal {
     @Binding var food: String
     @Binding var foodDescription: String
     @Binding var meal: String
-    @Binding var caloricCount: String
+    @Binding var caloricCount: Int
 }
 
 struct DietView: View {
     
-    @State private var itemList = [
-        "item 1",
-        "item 2",
-        "item 3"]
+ 
     @State private var editing: Bool = false
     @State private var showingAlert = false
     @State private var newListItem = " "
@@ -122,7 +119,7 @@ struct DietView: View {
                 } .sheet(isPresented: $shouldPresentSheet, onDismiss: didDismiss) {
                     DietEditView()
                     Button("Done") {
-                        meals.append(DietMeal(food: <#T##Binding<String>#>, foodDescription: <#T##Binding<String>#>, meal: <#T##Binding<String>#>, caloricCount: <#T##Binding<String>#>))
+                        meals.append(DietMeal(food: .constant(""), foodDescription: .constant(""), meal: .constant(""), caloricCount: .constant(0)))
                         
                                         
                         shouldPresentSheet.toggle()
